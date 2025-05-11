@@ -1,0 +1,36 @@
+@import url('landing.css');
+@import url('shared-components.css');
+
+/* Hide Menu as it's empty */
+.hamburger-menu {
+  display: none !important;
+}
+
+/* Section that centers the card */
+.login-section {
+  /* Use the same properties as auth-section */
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+  background: var(--bg-color);
+}
+
+/* Login card container - using shared properties */
+.login-card {
+  /* Inherits styles from auth-card */
+  background: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-xxl);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  transition: var(--transition-slow);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specific overrides can go here if needed */

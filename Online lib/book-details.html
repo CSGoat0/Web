@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styling/landing.css">
+    <link rel="stylesheet" href="styling/search-modal.css">
+    <link rel="stylesheet" href="styling/shared-components.css">
+    <link rel="stylesheet" href="styling/book-details.css">
+    <title>CS Library | Book Details</title>
+</head>
+
+<body>
+    <!-- Skip navigation link for screen readers -->
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+    <!-- [Header Section] -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" id="logo-link"><img src="styling/icon(1).png" alt="CS Library Logo"
+                        class="header-logo" width="100"></a>
+            </div>
+
+            <!-- Right-side actions: Theme Toggle + Hamburger -->
+            <div class="header-actions">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" class="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="hamburger-menu">
+                    <button class="hamburger-btn" aria-label="Account menu" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="menu-dropdown">
+                        <button class="auth-btn signup-btn" onclick="window.location.href='sign_up_page.html'">
+                            <i class="fas fa-user-plus"></i> SIGN UP
+                        </button>
+                        <button class="auth-btn login-btn" onclick="window.location.href='log_in_page.html'">
+                            <i class="fas fa-sign-in-alt"></i> LOG IN
+                        </button>
+                        <button class="account-btn"> <i class="fas fa-user"></i> ACCOUNT </button>
+                        <button class="account-btn"> <i class="fas fa-sign-out-alt"></i> LOG OUT </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <!-- Navigation links will be dynamically populated by header_actions.js -->
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="book-details-section">
+            <div class="book-details-container">
+                <!-- Book details will be loaded here by JavaScript -->
+                <div id="book-loading" class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading book details...</p>
+                </div>
+                
+                <div id="book-details-content" class="hidden">
+                    <div class="book-header">
+                        <div class="book-cover-container">
+                            <img id="book-cover" src="assets/placeholder-book.jpg" alt="Book cover">
+                            <span id="book-genre" class="book-category">Genre</span>
+                        </div>
+                        
+                        <div class="book-info">
+                            <h1 id="book-title">Book Title</h1>
+                            <p id="book-author" class="book-author">by Author Name</p>
+                            
+                            <div class="book-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span id="book-year">2023</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-book-open"></i>
+                                    <span id="book-pages">256 pages</span>
+                                </div>
+                            </div>
+                            
+                            <div class="book-availability">
+                                <span id="availability-badge" class="badge available">Available</span>
+                                <button id="borrow-btn" class="primary-btn">
+                                    <i class="fas fa-book"></i> Borrow
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="book-content">
+                        <div class="book-tabs">
+                            <button class="tab-btn active" data-tab="description">Description</button>
+                            <button class="tab-btn" data-tab="details">Details</button>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <div id="description-tab" class="tab-pane active">
+                                <h2>Book Description</h2>
+                                <p id="book-description">Book description will appear here.</p>
+                            </div>
+                            
+                            <div id="details-tab" class="tab-pane">
+                                <h2>Book Details</h2>
+                                <table class="details-table">
+                                    <tr>
+                                        <th>ISBN:</th>
+                                        <td id="book-isbn">9781234567890</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Publisher:</th>
+                                        <td id="book-publisher">Publisher Name</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Publication Date:</th>
+                                        <td id="book-pub-date">January 1, 2023</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Pages:</th>
+                                        <td id="book-pages-detail">256</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Genre:</th>
+                                        <td id="book-genre-detail">Computer Science</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-books">
+                        <h2>Related Books</h2>
+                        <div id="related-books-container" class="books-grid">
+                            <!-- Related books will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="book-error" class="error-message hidden">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Sorry, we couldn't find the book you're looking for.</p>
+                    <a href="index.html" class="primary-btn">Return to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- [Footer] -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <!-- Get to Know Us Section -->
+            <div class="footer-col">
+                <h4>Get To Know Us</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">About CS Library</a>
+                    <a href="#" class="footer-link">Careers</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Shop With Us</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">Your Account</a>
+                    <a href="#" class="footer-link">Your Orders</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h4>Help & Support</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">Shipping Rates & Policies</a>
+                    <a href="#" class="footer-link">Returns & Replacements</a>
+                    <a href="#" class="footer-link">Help</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2023 CS Library. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast notifications container -->
+    <div id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="script/header_actions.js"></script>
+    <script type="module" src="script/notification.js"></script>
+    <script type="module" src="script/book-details.js"></script>
+</body>
+
+</html>

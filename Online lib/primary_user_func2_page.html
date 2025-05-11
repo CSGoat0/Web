@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styling/landing.css">
+    <link rel="stylesheet" href="styling/search-modal.css">
+    <link rel="stylesheet" href="styling/shared-components.css">
+    <link rel="stylesheet" href="styling/primary_user_func2.css">
+    <title>CS Library | Primary User Function 2</title>
+</head>
+
+<body>
+    <!-- Skip navigation link for screen readers -->
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+    <!-- [Header Section] -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html" id="logo-link"><img src="styling/icon(1).png" alt="CS Library Logo"
+                        class="header-logo" width="100"></a>
+            </div>
+
+            <!-- Advanced Search Button -->
+            <div class="search-container">
+                <button id="advanced-search-btn" class="advanced-search-btn" aria-label="Advanced search">
+                    <i class="fas fa-search"></i> ADVANCED SEARCH
+                </button>
+            </div>
+
+            <!-- Right-side actions: Theme Toggle + Hamburger -->
+            <div class="header-actions">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" class="theme-toggle-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <div class="hamburger-menu">
+                    <button class="hamburger-btn" aria-label="Account menu" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="menu-dropdown">
+                        <button class="auth-btn signup-btn" onclick="window.location.href='sign_up_page.html'">
+                            <i class="fas fa-user-plus"></i> SIGN UP
+                        </button>
+                        <button class="auth-btn login-btn" onclick="window.location.href='log_in_page.html'">
+                            <i class="fas fa-sign-in-alt"></i> LOG IN
+                        </button>
+                        <button class="account-btn"> <i class="fas fa-user"></i> ACCOUNT </button>
+                        <button class="account-btn"> <i class="fas fa-sign-out-alt"></i> LOG OUT </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- [Navigation Menu] -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <!-- Navigation links will be dynamically populated by header_actions.js -->
+        </ul>
+    </nav>
+
+    <!-- Main Content with Vertical Nav -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Vertical Navigation Sidebar -->
+            <nav class="vertical-sidebar">
+                <ul class="vertical-nav">
+                    <li>
+                        <a href="primary_user_control_panel_page.html" class="nav-item">
+                            <i class="fa-solid fa-user"></i>
+                            <span>My Details</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="primary_user_func2_page.html" class="nav-item active">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <span>Available Books</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="primary_user_func1_page.html" class="nav-item">
+                            <i class="fa-solid fa-book"></i>
+                            <span>Add Books</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Content Area (Cards + Search/Actions) -->
+            <div class="content-area">
+
+                <!-- Book Cards Container -->
+                <div id="secondary_window" class="book-list-container"></div>
+
+                <!-- Edit/Delete Actions -->
+                <div class="edit_delete">
+                    <input type="button" value="Edit" id="edit" class="but" disabled>
+                    <input type="button" value="Delete" id="delete" class="but" disabled>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- [Footer] -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <!-- Get to Know Us Section -->
+            <div class="footer-col">
+                <h4>Get To Know Us</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">About CS Library</a>
+                    <a href="#" class="footer-link">Careers</a>
+                </nav>
+            </div>
+
+            <!-- Shop With Us Section -->
+            <div class="footer-col">
+                <h4>Shop With Us</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">Your Account</a>
+                    <a href="#" class="footer-link">Your Lists</a>
+                </nav>
+            </div>
+
+            <!-- Support Section -->
+            <div class="footer-col">
+                <h4>Support Us</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">Donate For Us</a>
+                    <a href="#" class="footer-link">Buy Us Coffee</a>
+                </nav>
+            </div>
+
+            <!-- Contact Us Section -->
+            <div class="footer-col">
+                <h4>Let Us Help You</h4>
+                <nav class="footer-links">
+                    <a href="#" class="footer-link">Help Center</a>
+                    <a href="#" class="footer-link">Hot Line</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast notifications container -->
+    <div id="toastContainer"></div>
+
+    <!-- Advanced Search Modal -->
+    <div id="searchModalBackdrop" class="search-modal-backdrop">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <h3 class="search-modal-title">Advanced Search</h3>
+                <button id="closeSearchModal" class="search-modal-close" aria-label="Close search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-modal-body">
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label for="title-filter">Title:</label>
+                        <input type="text" id="title-filter" class="filter-input" placeholder="Search by title...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="author-filter">Author:</label>
+                        <input type="text" id="author-filter" class="filter-input" placeholder="Author name...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-actions">
+                    <button id="resetFilters" class="filter-btn filter-reset">Reset</button>
+                    <button id="applyFilters" class="filter-btn filter-apply">Apply Filters</button>
+                </div>
+                
+                <div class="filter-tags" id="activeTags"></div>
+                
+                <div class="search-results-container">
+                    <div id="noResultsMessage" class="no-results-message" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <p>No books found matching your criteria.</p>
+                    </div>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script/search.js"></script>
+    <script type="module" src="script/notification.js"></script>
+    <script type="module" src="script/header_actions.js"></script>
+    <script type="module" src="script/display_books.js"></script>
+    <script type="module" src="script/book-details.js"></script>
+</body>
+
+</html>

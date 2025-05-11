@@ -1,0 +1,168 @@
+@import url("landing.css");
+
+hr {
+    border: 1px solid var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* container for the form */
+.add_book_menu {
+    display: flex;
+    background-color: var(--card-bg);
+    justify-content: center;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    padding-top: 0px;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    margin: 50px auto;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+/* labels */
+#form label {
+    color: var(--text-color);
+    font-weight: 800;
+    display: block;
+    margin: 0;
+}
+
+/* file input container */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0 10px;
+}
+
+/* File name display field */
+.file-name-field {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    height: 42px;
+    box-sizing: border-box;
+}
+
+/* hide original file input */
+.file-input-container input[type="file"] {
+    display: none;
+}
+
+/* custom browse button */
+.browse-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.browse-btn:hover {
+    background: var(--hover-color);
+    border-color: var(--hover-color);
+}
+
+/* input & select fields */
+.input_field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 5px 0px 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.input_field:focus,
+.file-name-field:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+#form select {
+    font-size: 1rem;
+}
+
+/* date input styling */
+#publication_date {
+    color-scheme: var(--scheme);
+}
+
+/* book cover preview image */
+#book_cover_preview {
+    display: flex;
+    min-width: 214px;
+    max-width: 214px;
+    border-radius: 0.5rem;
+    margin-top: 5px;
+    aspect-ratio: auto 517 / 738;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+/* summary textarea */
+#summary {
+    width: 100%;
+    height: fit-content;
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* button styling */
+#add {
+    display: block;
+    width: 250px;
+    border-radius: 1rem;
+    border: none;
+    padding: 15px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* button hover effect */
+#add:hover {
+    background: var(--hover-color);
+}
+
+/* right-align the button */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* required field indicator */
+input:required::after,
+select:required::after,
+textarea:required::after {
+    content: " *";
+    color: red;
+    font-size: calc(100% + 5px);
+}

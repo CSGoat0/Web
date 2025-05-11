@@ -1,0 +1,26 @@
+@import url('landing.css');
+@import url('shared-components.css');
+
+body {
+    line-height: 1.6;
+}
+
+/* Use the ID selector to extend the shared class */
+#edit {
+    /* Apply all the same properties as .edit-btn */
+    display: block;
+    width: 250px;
+    border-radius: 1rem;
+    border: none;
+    padding: 15px;
+    background: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: 600;
+}
+
+#edit:hover {
+    background: var(--hover-color);
+}
