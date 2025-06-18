@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styling/rules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>The 100 Game/ Rules</title>
+</head>
+
+<body>
+    <input type="button" value="◀" id="back">
+    <span id="title">
+        RULES
+    </span>
+    <div id="rules_container">
+        <span class="rules">
+            1- Each player has to be the one who reach the 100
+        </span>
+        <span class="rules">
+            2- The game lasts for maximum 40 secs
+        </span>
+        <span class="rules">
+            3- Player who runs out of time lose
+        </span>
+        <span class="rules">
+            4- Good luck
+        </span>
+    </div>
+
+    <script>
+        let backBtn = document.getElementById("back");
+        backBtn.onclick = function () {
+            location.replace("index.html");
+        }
+    </script>
+</body>
+
+</html>

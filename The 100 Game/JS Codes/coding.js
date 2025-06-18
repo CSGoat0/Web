@@ -177,3 +177,9 @@ let restart = document.getElementById("restart");
 restart.onclick = function () {
     history.go(0);
 }
+
+//Rules button
+let rulesBtn = document.getElementById('rules');
+rulesBtn.onclick = function () {
+    location.replace("rules.html");
+}

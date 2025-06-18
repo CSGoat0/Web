@@ -1,0 +1,44 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    height: 700px;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+#back {
+    width: 65px;
+    background: crimson;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 1px 3px gray;
+}
+
+#back:hover {
+    background-color: brown;
+}
+
+#title {
+    font-size: 40px;
+    text-align: center;
+}
+
+.rules {
+    font-size: 20px;
+    padding: 20px;
+}
+
+#rules_container {
+    height: 500px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    background-color: lightskyblue;
+    margin: 50px;
+    border-radius: 20px;
+    box-shadow: 4px 6px gray;
+}
