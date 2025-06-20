@@ -1,1 +1,1 @@
-DON'T EVER CHANGE PhOTO NAMES!
+Please run the project on live server, thank you!
