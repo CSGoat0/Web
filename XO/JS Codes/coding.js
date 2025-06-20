@@ -1,13 +1,14 @@
 // initializing the player class
 class Player {
-    constructor(sym) {
+    constructor(sym, clr) {
         this.symbol = sym;
+        this.color = clr;
     }
     myturn;
 }
-p1 = new Player("X");
+p1 = new Player("X", "red");
 p1.myturn = true;
-p2 = new Player("O");
+p2 = new Player("O", "green");
 p2.myturn = false;
 
 // cells functionality
@@ -16,11 +17,13 @@ cells.forEach((value) => {
     value.addEventListener('click', () => {
         if (p1.myturn && value.textContent == "") {
             value.textContent = p1.symbol;
+            value.style.color = p1.color;
             p1.myturn = false;
             p2.myturn = true;
         }
         else if (p2.myturn && value.textContent == "") {
             value.textContent = p2.symbol;
+            value.style.color = p2.color;
             p1.myturn = true;
             p2.myturn = false;
         }
