@@ -124,71 +124,17 @@ cells.forEach((value) => {
 
     //winning functionality
     function isWin() {
-        if (cells[0].textContent === p1.symbol && cells[4].textContent === p1.symbol && cells[8].textContent === p1.symbol) {
-            return true;
-        }
-        else if (cells[0].textContent === p2.symbol && cells[4].textContent === p2.symbol && cells[8].textContent === p2.symbol) {
-            return true;
-        }
-        else if (cells[2].textContent === p1.symbol && cells[4].textContent === p1.symbol && cells[6].textContent === p1.symbol) {
-            return true;
-        }
-        else if (cells[2].textContent === p2.symbol && cells[4].textContent === p2.symbol && cells[6].textContent === p2.symbol) {
-            return true;
-        }
-        for (let i = 0; i < 9; i += 3) {
-            let counter = 0;
-            for (let j = i; j < i + 3; j++) {
-                if (cells[j].textContent === p1.symbol) {
-                    counter++;
-                }
-                else {
-                    break;
-                }
-            }
-            if (counter >= 3) {
-                return true;
-            }
-        }
-        for (let i = 0; i < 9; i += 3) {
-            let counter = 0;
-            for (let j = i; j < i + 3; j++) {
-                if (cells[j].textContent === p2.symbol) {
-                    counter++;
-                }
-                else {
-                    break;
-                }
-            }
-            if (counter >= 3) {
-                return true;
-            }
-        }
-        for (let i = 0; i < 3; i++) {
-            let counter = 0;
-            for (let j = i; j < 9; j += 3) {
-                if (cells[j].textContent === p1.symbol) {
-                    counter++;
-                }
-                else {
-                    break;
-                }
-            }
-            if (counter >= 3) {
-                return true;
-            }
-        }
-        for (let i = 0; i < 3; i++) {
-            let counter = 0;
-            for (let j = i; j < 9; j += 3) {
-                if (cells[j].textContent === p2.symbol) {
-                    counter++;
-                }
-                else {
-                    break;
-                }
-            }
-            if (counter >= 3) {
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        for (const pattern of winPatterns) {
+            const [a, b, c] = pattern;
+            if (cells[a].textContent &&
+                cells[a].textContent === cells[b].textContent &&
+                cells[a].textContent === cells[c].textContent) {
                 return true;
             }
         }
