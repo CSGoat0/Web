@@ -1,5 +1,6 @@
 // create snake class
-class Snake {
+class Pokimon {
+    //to check wither the apple is in my range or not, so i know where to move
     #checkRange(index1, index2) {
         for (let [x, y] of this.#ranges) {
             if (index1 >= x && index1 <= y) {
@@ -44,8 +45,8 @@ class Snake {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    #checkFood(container) {
-        for (let element of container) {
+    #checkFood() {
+        for (let element of this.board) {
             if (element.textContent !== "" && element.textContent !== `${this.headSymbol}`) {
                 return true;
             }
@@ -53,30 +54,34 @@ class Snake {
         return false;
     }
 
-    constructor(current, up, right, down, left, headSym, untiSpeed = 400) {
-        this.current = current;
-        this.up = up;
-        this.right = right;
-        this.left = left;
-        this.down = down;
-        this.headSymbol = headSym;
+    constructor(board, currentPosition, headSymbol, bodySymbol, untiSpeed = 1000) {
+        this.board = board;
+        this.current = currentPosition;
+        this.headSymbol = headSymbol;
+        this.bodySymbol = bodySymbol;
         this.untiSpeed = untiSpeed;
     }
 
+    up = false;
+    right = true;
+    down = false;
+    left = false;
     score = -1;
     endGame = false;
+
+    //to check wither the apple is in my range or not, so i know where to move
     #ranges = [[0, 27], [28, 55], [56, 83], [85, 111], [112, 139], [140, 167], [168, 195], [196, 223], [224, 251],
     [216, 279], [280, 307], [308, 335], [336, 363], [364, 391], [392, 419], [420, 447], [448, 475], [476, 503],
     [504, 531], [532, 559]];
 
     //initiate snake movement
-    IMove(array) {
+    IMove() {
         let interval = setInterval(() => {
             try {
                 if (this.up) {
                     if (!this.#maxTopBoarder(this.current)) {
-                        array[this.current].innerHTML = "";
-                        array[this.current -= 28].innerHTML = this.headSymbol;
+                        this.board[this.current].innerHTML = "";
+                        this.board[this.current -= 28].innerHTML = this.headSymbol;
                     }
                     else {
                         clearInterval(interval)
@@ -85,8 +90,8 @@ class Snake {
                 }
                 else if (this.right) {
                     if (!this.#maxRightBoarder(this.current)) {
-                        array[this.current].innerHTML = "";
-                        array[++this.current].innerHTML = this.headSymbol;
+                        this.board[this.current].innerHTML = "";
+                        this.board[++this.current].innerHTML = this.headSymbol;
                     }
                     else {
                         clearInterval(interval)
@@ -95,8 +100,8 @@ class Snake {
                 }
                 else if (this.left) {
                     if (!this.#maxLeftBoarder(this.current)) {
-                        array[this.current].innerHTML = "";
-                        array[--this.current].innerHTML = this.headSymbol;
+                        this.board[this.current].innerHTML = "";
+                        this.board[--this.current].innerHTML = this.headSymbol;
                     }
                     else {
                         clearInterval(interval)
@@ -105,8 +110,8 @@ class Snake {
                 }
                 else {
                     if (!this.#maxBottomBoarder(this.current)) {
-                        array[this.current].innerHTML = "";
-                        array[this.current += 28].innerHTML = this.headSymbol;
+                        this.board[this.current].innerHTML = "";
+                        this.board[this.current += 28].innerHTML = this.headSymbol;
                     }
                     else {
                         clearInterval(interval)
@@ -153,27 +158,27 @@ class Snake {
         }
     }
 
-    Ifood(container) {
+    Ifood() {
         let interval = setInterval(() => {
-            if (!this.#checkFood(container)) {
+            if (!this.#checkFood(this.board)) {
                 let rand = this.#getRandomInt(0, 559);
-                container[rand].textContent = "🍎";
+                this.board[rand].textContent = "🍎";
                 this.score++;
                 this.untiSpeed -= 100;
             }
             if (this.endGame) {
                 clearInterval(interval);
             }
-        }, 100);
+        }, 200);
     }
 }
 
 // initialize a snake
-let sk1 = new Snake(350, false, false, true, false, '🤪', 120);
 let cells = document.querySelectorAll(".cell");
+let sk1 = new Pokimon(cells, 350, '🤪', '⚫', 250);
 let index = undefined;
-sk1.IMove(cells);
-sk1.Ifood(cells);
+sk1.IMove();
+sk1.Ifood();
 
 setInterval(() => {
     if (index === sk1.current) {
