@@ -218,5 +218,7 @@ cells.forEach((e) => {
     });
 });
 
+console.log(cell);
+
 
 //note : don't forget the pause functionality, it is done when all directions are false;
