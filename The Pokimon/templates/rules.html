@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styling/rules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>pokemon/rules</title>
+</head>
+
+<body>
+    <input type="button" value="back" id="back">
+    <div id="rules-container">
+        <ul>
+            <li>Welcome to Customized Pokemon</li>
+            <li>Each time you eat a food, your score increases by one</li>
+            <li>If you hit the wall, you lose</li>
+            <li>If a ghost hits you, you lose</li>
+            <li>You can Add as much Ghosts as you want</li>
+            <li>You can choose both Ghost and Food Faces</li>
+            <li>Good luck</li>
+        </ul>
+    </div>
+    <script>
+        let backbtn = document.getElementById("back");
+        backbtn.onclick = function () {
+            location.replace("index.html");
+        };
+    </script>
+</body>
+
+</html>

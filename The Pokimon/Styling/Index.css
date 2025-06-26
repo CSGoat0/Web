@@ -1,24 +1,115 @@
 body {
-    height: 700px;
+    height: 900px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
     align-content: center;
-    background: aliceblue;
+    background: #333;
+    font-family: 'Orbitron', sans-serif;
 }
 
-#game_board {
+#game-board {
     display: grid;
     grid-template-columns: repeat(28, 25px);
     grid-template-rows: repeat(20, 25px);
     width: 700px;
     height: 500px;
-    background: cadetblue;
+    background: #33363D;
     border-radius: 20px;
     padding: 5px;
+    box-shadow: 1px 1px 5px;
+}
+
+#top-bar {
+    padding: 20px;
+    background: crimson;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 3px;
+    margin: 10px;
+}
+
+#bottom-bar {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background: #3b3b3b;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px;
+    justify-content: space-evenly;
+}
+
+.bottom-section {
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+
+#bottom-bar label {
+    color: white;
+}
+
+input[type="button"] {
+    min-width: 200px;
+    margin: 5px;
+    background-color: rgb(31, 81, 255);
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+    box-shadow: 1px 1px 5px rgb(31, 81, 255);
+    font-family: 'Orbitron', sans-serif;
+}
+
+input[type="button"]:hover {
+    box-shadow: 1px 1px 15px rgb(1, 12, 52);
+}
+
+.select {
+    width: 150px;
+    height: 20px;
+    border: none;
+    background: aqua;
+    box-shadow: 1px 1px 10px aqua;
+    margin-top: 10px;
+    margin-left: 30px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .cell {
-    /* border: 1px solid black; */
+    cursor: pointer;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.rebuilt-cell {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 50px;
+}
+
+#defeat {
+    text-align: center;
+    visibility: hidden;
+}
+
+#defeat span {
+    display: inline-block;
+    background: red;
+    width: 200px;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    box-shadow: 2px 2px 20px red;
 }

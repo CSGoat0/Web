@@ -1,0 +1,106 @@
+:root {
+    --primary-color: #1150dd;
+    /* Pokemon yellow */
+    --secondary-color: #3b4cca;
+    /* Pokemon blue */
+    --accent-color: #ff0000;
+    /* Pokemon red */
+    --text-color: #ffffff;
+    --background-dark: #222;
+    --background-light: #333;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#rules-container {
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(41, 230, 8, 0.3);
+    }
+
+    to {
+        box-shadow: 0 0 20px rgba(234, 6, 211, 0.6);
+    }
+}
+
+#rules-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#rules-container li {
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    background: rgba(59, 76, 202, 0.2);
+    border-left: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+#rules-container li:hover {
+    transform: translateX(10px);
+    background: rgba(59, 76, 202, 0.4);
+}
+
+#rules-container li:first-child {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    border-left: none;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#back {
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    background: crimson;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#back:hover {
+    background-color: brown;
+}
+
+@media (max-width: 600px) {
+    #rules-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    #rules-container li {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    #rules-container li:first-child {
+        font-size: 1.2rem;
+    }
+}
